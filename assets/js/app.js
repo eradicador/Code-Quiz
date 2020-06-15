@@ -13,6 +13,12 @@ var questions = [
   var containerEl = document.querySelector(".container")
 
   var timer = document.querySelector(".timer")
+
+  var startText = document.createElement("h1");
+
+  var startBtn = document.createElement("button");
+
+  var questionText = document.createElement("p");
   
   var startBtn = document.createElement("button");
 
