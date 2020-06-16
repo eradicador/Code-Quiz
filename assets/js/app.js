@@ -1,13 +1,3 @@
-var containerEl = document.querySelector(".container");
-var timer = document.querySelector(".timer");
-var startText = document.createElement("h1");
-var startBtn = document.createElement("button");
-var questionText = document.createElement("p");
-var startBtn = document.createElement("button");
-var questionText = document.createElement("p");
-var timer = 80;
-var Index = 0;
-
 var questions = [
     {
         title: "Example Question 1:",
@@ -21,7 +11,14 @@ var questions = [
     }
 ];
 
-openingPage()
+var containerEl = document.querySelector(".container");
+var timerDisplay = document.querySelector(".timer");
+var startText = document.createElement("h1");
+var startBtn = document.createElement("button");
+var questionText = document.createElement("p");
+var timer = 80;
+var index = 0;
+
 
 function openingPage() {
     startText.textContent = "Welcome to my Quiz";
@@ -44,28 +41,30 @@ function showTimer() {
             clearInterval(timeInterval)
         }
     }, 1000)
+}
+function nextQuestion() {
+    var currentQuestion = questions[index];
+    containerEl.textContent = "";
+    questionText.textContent = currentQuestion.title;
+    containerEl.appendChild(questionText);
+    var answersDiv = document.createElement("div");
 
-    function nextQuestion() {
-        var currentQuestion = questions[index];
-        containerE1.textContent = "";
-        questionText.textContent = currentQuestion.title;
-        containerEl.appendChild(questionText);
-        var answersDiv = document.createElement("div");
-
-        for (let i = 0; 1 < currentQuestion.choices.length; i++) {
-            var answerBtn = document.createElement("button");
-            answerBtn.classList.add("choiceBtn");
-            answerBtn.textContent = currentQuestion.choices[i];
-            answerDiv.appendChild(answerBtn);
-        }
-        containerEl.appendChild(answersDiv);
+    for (let i = 0; i < currentQuestion.choices.length; i++) {
+        var answerBtn = document.createElement("button");
+        answerBtn.classList.add("choiceBtn");
+        answerBtn.textContent = currentQuestion.choices[i];
+        answersDiv.appendChild(answerBtn);
     }
+    containerEl.appendChild(answersDiv);
 };
 
 function checkAnswer(event) {
     if (event.target.matches(".choiceBtn")) {
     }
-
-    startBtn.addEventListener("click", startQuiz())
+    index++;
+    nextQuestion()
+    startBtn.addEventListener("click", startQuiz)
 }
-openingPage();
+startBtn.addEventListener("click", startQuiz);
+document.addEventListener("click", checkAnswer);
+openingPage()
