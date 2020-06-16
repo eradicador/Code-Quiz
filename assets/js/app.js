@@ -1,3 +1,4 @@
+//create questions as an object
 var questions = [
     {
         title: "Example Question 1:",
@@ -10,25 +11,37 @@ var questions = [
         answer: "answer from choices"
     }
 ];
-
+//hook container element
 var containerEl = document.querySelector(".container");
+//hook timer element
 var timerDisplay = document.querySelector(".timer");
+//create h1 to show starting heading 
 var startText = document.createElement("h1");
+//create button to start Quiz
 var startBtn = document.createElement("button");
+//create p tag to display question
 var questionText = document.createElement("p");
+//variable to store timer number
 var timer = 80;
+//variable to store current index
 var index = 0;
-
-
+//**FUNCTIONS**
+//Function that loads content when page first load
 function openingPage() {
+    //add text to title tag
     startText.textContent = "Welcome to my Quiz";
+    //add text to button
     startBtn.textContent = "Start Quiz";
+    //append text to container
     containerEl.appendChild(startText);
+    //append button to container
     containerEl.appendChild(startBtn);
 }
-
+//function that shows the question and starts the timer
 function startQuiz() {
+    //show timer function
     showTimer();
+    //call next question function
     nextQuestion();
 }
 
@@ -65,6 +78,9 @@ function checkAnswer(event) {
     nextQuestion()
     startBtn.addEventListener("click", startQuiz)
 }
+//add event listener to start quiz
 startBtn.addEventListener("click", startQuiz);
+//add event listener to choice button
 document.addEventListener("click", checkAnswer);
+//call function to show opening page
 openingPage()
