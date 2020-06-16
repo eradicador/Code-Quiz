@@ -44,9 +44,11 @@ function startQuiz() {
     //call next question function
     nextQuestion();
 }
-
+//function the handles the timer
 function showTimer() {
+    //display timer to screen
     timerDisplay.textContent = timer;
+    //create setInterval and store it to a variable
     var timeInterval = setInterval(function () {
         timer--;
         timerDisplay.textContent = timer;
@@ -55,23 +57,35 @@ function showTimer() {
         }
     }, 1000)
 }
+//function that hendles and display the next question
 function nextQuestion() {
+    //declare a variable to store current question. assign the current question
     var currentQuestion = questions[index];
+    //empty container element
     containerEl.textContent = "";
+    //add current question title to the question display variable
     questionText.textContent = currentQuestion.title;
+    //append the question display variable to the container
     containerEl.appendChild(questionText);
+    //create a div element to wrap the `choices`
     var answersDiv = document.createElement("div");
-
+//for loop to:
+//-create button elements for each choice
+//-add a class to each button to be used with the event listener
+//-add text to each button from question choices
+//-append buttons to div element created to wrap `choices`
     for (let i = 0; i < currentQuestion.choices.length; i++) {
         var answerBtn = document.createElement("button");
         answerBtn.classList.add("choiceBtn");
         answerBtn.textContent = currentQuestion.choices[i];
         answersDiv.appendChild(answerBtn);
     }
+    //append div element to the container
     containerEl.appendChild(answersDiv);
 };
-
+//function to check the answer and display to following question
 function checkAnswer(event) {
+    //if event.target.matches(--choice button class--)
     if (event.target.matches(".choiceBtn")) {
     }
     index++;
