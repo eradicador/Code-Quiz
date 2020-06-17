@@ -13,6 +13,7 @@
 <body>
     <div class="card-body p-5 text-center" id="start-screen">
         <h1>Code Quiz Challenge</h1>
+        <!-- changed color to the start button -->
         <button id="start-button" class="btn btn-info">Start</button>
     </div>
     <div class="card hide" id="middle-screen">
@@ -23,15 +24,19 @@
         <div id="choices" class="text-center"></div>
         <p id="answerText"></p>
     </div>
-    <div class="card hide" id="end-screen">
-        <h1> game over</h1>
-        <form>
-            <div class="form-group">
-                <label for="initials">Enter your initials</label>
-                <input type="name" class="form-control" id="initials">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <!-- added a row so i can center the card -->
+    <div class="row">
+        <!-- card is center to middle of screen -->
+        <div class="card hide mx-auto p-5 text-center" id="end-screen">
+            <h1>Code Quiz Over</h1>
+            <form id="subBtn">
+                <div class="form-group m-5">
+                    <label for="initials">Enter your initials</label>
+                    <input type="name" class="form-control" id="initials">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+        </div>
     </div>
     <div class="results"></div>
     <script src="./assets/js/app.js"></script>

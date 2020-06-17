@@ -3,38 +3,36 @@ var questions = [
     {
         title: "Which of the following HTML Elements is used for making any text bold?",
         choices: ["<b>", "<p>", "<i>", "<li"],
-        answer: "Choice 1"
+        answer: "<b>"
     },
     {
         title: "How many heading tags are there in HTML5?",
         choices: ["2", "5", "3", "6"],
-        answer: "Choice 4"
+        answer: "6"
     },
     {
         title: "Which of the following attributes is used to add link to any element?",
         choices: ["link", "ref", "href", "newref"],
-        answer: "Choice 3"
+        answer: "href"
     },
     {
         title: "Which of the following attributes is used to open an hyperlink in new tab?",
         choices: ["tag", "target", "ref", "href"],
-        answer: "Choice 2"
+        answer: "target"
     },
     {
         title: "Using padding clears the area outside:",
         choices: ["Content", "Boreder", "Margin", "All of the above"],
-        answer: "Choice 1"
-    },
-    {
-        title: "All Done:",
-    },
+        answer: "Content"
+    }
 ];
-//hook container element
+//hook container elements
+var initials = document.getElementById("initials")
+var submitBtn = document.getElementById("subBtn")
 var startScreen = document.getElementById("start-screen");
 var quizScreen = document.getElementById("middle-screen");
 var endScreen = document.getElementById("end-screen");
 var choicesEl = document.querySelector("#choices");
-//hook timer element
 var timerDisplay = document.querySelector(".timer");
 //create h1 to show starting heading 
 var startText = document.createElement("h1");
@@ -44,22 +42,12 @@ var startBtn = document.getElementById("start-button")
 var questionText = document.createElement("p");
 var answerText = document.getElementById("answerText")
 //variable to store timer number
-var timer = 120;
+var timer = 110;
 //variable to store current index
 var index = 0;
+var timeInterval;
 //**FUNCTIONS**
 //Function that loads content when page first load
-// function openingPage() {
-//     //add text to title tag
-//     startText.textContent = "Welcome to my Quiz";
-//     //add text to button
-//     startBtn.textContent = "Start Quiz";
-//     //append text to container
-//     containerEl.appendChild(startText);
-//     //append button to container
-//     containerEl.appendChild(startBtn);
-// }
-//function that shows the question and starts the timer
 function startQuiz() {
     startScreen.setAttribute("class", "hide");
     quizScreen.removeAttribute("class", "hide");
@@ -73,7 +61,7 @@ function showTimer() {
     //display timer to screen
     timerDisplay.textContent = timer;
     //create setInterval and store it to a variable
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         timer--;
         timerDisplay.textContent = timer;
         if (timer === 0) {
@@ -115,31 +103,46 @@ function checkAnswer() {
     var correct = [];
     if (this.value !== questions[index].answer) {
         // decrease timer
-        timer = timer - 10
+        timer = timer - 15
         console.log("wrong")
 
         answerText.textContent = "wrong"
-
-
+        
+        endQuestions()
     } else {
         correct.push(questions[index])
         var correctNum = correct.length;
         answerText.textContent = "correct"
         console.log(correctNum)
+        
+        endQuestions()
     }
     //check if right or wrong
     //advance to next question
-    index++;
-    if (index === questions.length) {
+    
+    
+}
+function endQuestions(){
+    if (index === questions.length -1) {
         console.log("game over")
+        endScreen.classList.remove("hide");
+        clearInterval(timeInterval)
     } else {
+        index++;
         //set a time set function after 1 second deletes and goes to the next ?
         nextQuestion()
     }
 }
+function saveScore(event){
+    event.preventDefault()
+    console.log(initials.value)
+    
+}
 //add event listener to start quiz
 startBtn.addEventListener("click", startQuiz);
-//add event listener to choice button
+//add event listener to submit button
+submitBtn.addEventListener("submit", saveScore);
+
 // document.addEventListener("click", checkAnswer);
 // //call function to show opening page
 // openingPage()
