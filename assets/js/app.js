@@ -1,28 +1,28 @@
 //create questions as an object
 var questions = [
     {
-        title: "Example Question 1:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+        title: "Which of the following HTML Elements is used for making any text bold?",
+        choices: ["<b>", "<p>", "<i>", "<li"],
         answer: "Choice 1"
     },
     {
-        title: "Example Question 2:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+        title: "How many heading tags are there in HTML5?",
+        choices: ["2", "5", "3", "6"],
         answer: "Choice 4"
     },
     {
-        title: "Example Question 3:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+        title: "Which of the following attributes is used to add link to any element?",
+        choices: ["link", "ref", "href", "newref"],
         answer: "Choice 3"
     },
     {
-        title: "Example Question 4:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+        title: "Which of the following attributes is used to open an hyperlink in new tab?",
+        choices: ["tag", "target", "ref", "href"],
         answer: "Choice 2"
     },
     {
-        title: "Example Question 5:",
-        choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
+        title: "Using padding clears the area outside:",
+        choices: ["Content", "Boreder", "Margin", "All of the above"],
         answer: "Choice 1"
     },
     {
@@ -117,10 +117,10 @@ function checkAnswer() {
         // decrease timer
         timer = timer - 10
         console.log("wrong")
-        
+
         answerText.textContent = "wrong"
-        
-        
+
+
     } else {
         correct.push(questions[index])
         var correctNum = correct.length;
