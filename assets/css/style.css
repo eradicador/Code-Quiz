@@ -1,6 +1,13 @@
+/* added a display: none to the cards in the html file so the middle-screen and end-screen cards dont show right away */
 .hide {
     display: none
 }
-.choiceBtn{
+/* changed the background color to the choice buttons for the answer choices */
+.choiceBtn {
 	background-color: teal;
+}
+
+body{
+	font-size: 20px;
+	font-weight: bold;
 }

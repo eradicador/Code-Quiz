@@ -46,6 +46,7 @@ var timer = 110;
 //variable to store current index
 var index = 0;
 var timeInterval;
+
 //**FUNCTIONS**
 //Function that loads content when page first load
 function startQuiz() {
@@ -73,6 +74,7 @@ function showTimer() {
 function nextQuestion() {
     //declare a variable to store current question. assign the current question
     var currentQuestion = questions[index];
+    
     //empty container element
     choicesEl.textContent = "";
     //add current question title to the question display variable
@@ -105,7 +107,6 @@ function checkAnswer() {
         // decrease timer
         timer = timer - 15
         console.log("wrong")
-
         answerText.textContent = "wrong"
         
         endQuestions()
@@ -136,8 +137,15 @@ function endQuestions(){
 function saveScore(event){
     event.preventDefault()
     console.log(initials.value)
-    
-}
+
+//   if (typeof(Storage) !== "undefined") {
+//     // Store
+//     localStorage.setItem("initials", <<VALUE>>)
+//     localStorage.setItem("score", <<VALUE>>)
+//     // Retrieve
+//     document.getElementById("timer").innerHTML = localStorage.getItem("initials");
+ }
+
 //add event listener to start quiz
 startBtn.addEventListener("click", startQuiz);
 //add event listener to submit button

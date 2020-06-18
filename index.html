@@ -4,29 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- added bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- added the css link to css file -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- changed the title of the website -->
     <title>Code Quiz Challenge</title>
 </head>
 
 <body>
     <div class="card-body p-5 text-center" id="start-screen">
         <h1>Code Quiz Challenge</h1>
-        <!-- changed color to the start button -->
+        <!-- added and changed color to the start button -->
         <button id="start-button" class="btn btn-info">Start</button>
     </div>
     <div class="card hide" id="middle-screen">
-        <h1 id="question-title"></h1>
         <!-- center the timer -->
         <div class="timer text-center"></div>
-        <!-- center the choices -->
+        <!-- center the choices for the answers -->
         <div id="choices" class="text-center"></div>
-        <p id="answerText"></p>
+        <!-- added padding and color to text and centered the text -->
+        <p id="answerText" class="text-center p-3 text-danger"></p>
     </div>
     <!-- added a row so i can center the card -->
     <div class="row">
-        <!-- card is center to middle of screen -->
+        <!-- card was centered to middle of screen, padding was added and text was centered-->
         <div class="card hide mx-auto p-5 text-center" id="end-screen">
             <h1>Code Quiz Over</h1>
             <form id="subBtn">
@@ -34,11 +37,13 @@
                     <label for="initials">Enter your initials</label>
                     <input type="name" class="form-control" id="initials">
                 </div>
+                <!-- button color was changed to info -->
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
         </div>
     </div>
     <div class="results"></div>
+    <!-- javascript file was linked to this file -->
     <script src="./assets/js/app.js"></script>
 </body>
 
