@@ -6,7 +6,7 @@
 .choiceBtn {
 	background-color: teal;
 }
-
+/* changed the font size and bold for the body of html */
 body{
 	font-size: 20px;
 	font-weight: bold;

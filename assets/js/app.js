@@ -33,6 +33,7 @@ var startScreen = document.getElementById("start-screen");
 var quizScreen = document.getElementById("middle-screen");
 var endScreen = document.getElementById("end-screen");
 var choicesEl = document.querySelector("#choices");
+//variable to display timer
 var timerDisplay = document.querySelector(".timer");
 //create h1 to show starting heading 
 var startText = document.createElement("h1");
@@ -42,7 +43,7 @@ var startBtn = document.getElementById("start-button")
 var questionText = document.createElement("p");
 var answerText = document.getElementById("answerText")
 //variable to store timer number
-var timer = 110;
+var timer = 90;
 //variable to store current index
 var index = 0;
 var timeInterval;
@@ -74,7 +75,6 @@ function showTimer() {
 function nextQuestion() {
     //declare a variable to store current question. assign the current question
     var currentQuestion = questions[index];
-    
     //empty container element
     choicesEl.textContent = "";
     //add current question title to the question display variable
@@ -104,25 +104,19 @@ function checkAnswer() {
     console.log(this.value)
     var correct = [];
     if (this.value !== questions[index].answer) {
-        // decrease timer
+        // decrease timer if wrong answer is selected
         timer = timer - 15
-        console.log("wrong")
         answerText.textContent = "wrong"
-        
         endQuestions()
     } else {
         correct.push(questions[index])
         var correctNum = correct.length;
         answerText.textContent = "correct"
         console.log(correctNum)
-        
         endQuestions()
     }
-    //check if right or wrong
-    //advance to next question
-    
-    
 }
+//function to show gamer over screen and enter your initials
 function endQuestions(){
     if (index === questions.length -1) {
         console.log("game over")
@@ -134,10 +128,10 @@ function endQuestions(){
         nextQuestion()
     }
 }
+//function to save your score into local storage
 function saveScore(event){
     event.preventDefault()
     console.log(initials.value)
-
 //   if (typeof(Storage) !== "undefined") {
 //     // Store
 //     localStorage.setItem("initials", <<VALUE>>)
@@ -145,12 +139,7 @@ function saveScore(event){
 //     // Retrieve
 //     document.getElementById("timer").innerHTML = localStorage.getItem("initials");
  }
-
 //add event listener to start quiz
 startBtn.addEventListener("click", startQuiz);
 //add event listener to submit button
 submitBtn.addEventListener("submit", saveScore);
-
-// document.addEventListener("click", checkAnswer);
-// //call function to show opening page
-// openingPage()
