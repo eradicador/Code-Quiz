@@ -3,7 +3,7 @@
 This project is an app about a timed code quiz with multiple-choice questions. This app will run in the browser and features HTML and CSS powered by my JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes. The time quiz will store high scores in Local storage so it can compare scores with others users.
 the timed code quiz will have a start button on the first screen, when user clicks the start button the first question will be presented as well a timer will start countdown, when the user answer a question the next question will show up, also if the asnwer selected is wrong 15 seconds will be taken from the timer, when all questions are answered or the timer reaches 0 the quiz will be over then a form will come up asking for your initials and your score will be display it. 
 # screenshot 
-![](images/2020-06-17(5).png) 
+<img src ="images/2020-06-17(5).png" 
 
 
 
