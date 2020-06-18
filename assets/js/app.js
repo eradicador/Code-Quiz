@@ -1,4 +1,4 @@
-//create questions as an object
+//created questions as an object
 var questions = [
     {
         title: "Which of the following HTML Elements is used for making any text bold?",
@@ -35,11 +35,11 @@ var endScreen = document.getElementById("end-screen");
 var choicesEl = document.querySelector("#choices");
 //variable to display timer
 var timerDisplay = document.querySelector(".timer");
-//create h1 to show starting heading 
+//created h1 to show starting heading 
 var startText = document.createElement("h1");
-//create button to start Quiz
+//created button to start Quiz
 var startBtn = document.getElementById("start-button")
-//create p tag to display question
+//created p tag to display question
 var questionText = document.createElement("p");
 var answerText = document.getElementById("answerText")
 //variable to store timer number
@@ -62,7 +62,7 @@ function startQuiz() {
 function showTimer() {
     //display timer to screen
     timerDisplay.textContent = timer;
-    //create setInterval and store it to a variable
+    //created setInterval and store it to a variable
     timeInterval = setInterval(function () {
         timer--;
         timerDisplay.textContent = timer;
@@ -79,9 +79,9 @@ function nextQuestion() {
     choicesEl.textContent = "";
     //add current question title to the question display variable
     questionText.textContent = currentQuestion.title;
-    //append the question display variable to the container
+    //appended the question display variable to the container
     choicesEl.appendChild(questionText);
-    //create a div element to wrap the `choices`
+    //created a div element to wrap the `choices`
     var answersDiv = document.createElement("div");
     //for loop to:
     //-create button elements for each choice
@@ -96,7 +96,7 @@ function nextQuestion() {
         answerBtn.onclick = checkAnswer;
         answersDiv.appendChild(answerBtn);
     }
-    //append div element to the container
+    //appended div element to the container
     choicesEl.appendChild(answersDiv);
 };
 //function to check the answer and display to following question
@@ -104,7 +104,7 @@ function checkAnswer() {
     console.log(this.value)
     var correct = [];
     if (this.value !== questions[index].answer) {
-        // decrease timer if wrong answer is selected
+        // decreases timer if wrong answer is selected
         timer = timer - 15
         answerText.textContent = "wrong"
         endQuestions()
@@ -124,7 +124,6 @@ function endQuestions(){
         clearInterval(timeInterval)
     } else {
         index++;
-        //set a time set function after 1 second deletes and goes to the next ?
         nextQuestion()
     }
 }
@@ -139,7 +138,7 @@ function saveScore(event){
 //     // Retrieve
 //     document.getElementById("timer").innerHTML = localStorage.getItem("initials");
  }
-//add event listener to start quiz
+//added event listener to start quiz
 startBtn.addEventListener("click", startQuiz);
-//add event listener to submit button
+//added event listener to submit button
 submitBtn.addEventListener("submit", saveScore);

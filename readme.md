@@ -36,24 +36,72 @@ line 30 added padding and color to text and centered the text
 line 33 added a row so i can center the end screen card
 
 line 35 card was centered to middle of screen, padding was added and text was centered
+
 line 43 button color was changed to info
 
 line 49 javascript file was linked to this file
 
 # app.js file
 
+line 2 created questions as an object
 
+line 30 hook container elements
 
+line 37 variable to display timer
 
+line 39 created h1 to show starting heading
 
+line 41 created button to start Quiz
 
+line 43 created p tag to display question
 
+line 46 variable to store timer number
 
+line 48 variable to store current index
 
+line 53 Function that loads content when page first load
 
+line 57 show timer function
 
+line 59 call next question function
 
+line 62 function the handles the timer
 
+line 64 display timer to screen
+
+line 66 created setInterval and store it to a variable
+
+line 75 function that hendles and display the next question
+
+line 77 declare a variable to store current question. assign the current question
+
+line 79 empty container element
+
+line 81 add current question title to the question display variable
+
+line 83 appended the question display variable to the container
+
+line 85 created a div element to wrap the `choices`
+
+line 91 for loop to:
+    //-create button elements for each choice
+    //-add a class to each button to be used with the event listener
+    //-add text to each button from question choices
+    //-append buttons to div element created to wrap `choices`
+
+line 100 appended div element to the container
+
+line 103 function to check the answer and display to following question
+
+line 108 decreases timer if wrong answer is selected
+
+line 120 function to show gamer over screen and enter your initials
+
+line 131 function to save your score into local storage
+
+line 142 added event listener to start quiz
+
+line 144 added event listener to submit button
 
 # license
 MIT License
